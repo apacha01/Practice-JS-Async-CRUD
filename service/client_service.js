@@ -1,6 +1,6 @@
-const crearNuevaLinea = (nombre, email, id) => {
-  const linea = document.createElement("tr");
-  const contenido = `
+const createNewLine = (nombre, email, id) => {
+  const line = document.createElement("tr");
+  const content = `
     <td class="td" data-td>
       ${nombre}
     </td>
@@ -23,20 +23,29 @@ const crearNuevaLinea = (nombre, email, id) => {
       </ul>
     </td>
   `;
-  linea.innerHTML = contenido;
-  return linea;
+  line.innerHTML = content;
+  return line;
 };
 
 const table = document.querySelector("[data-table]");
-const http = new XMLHttpRequest();
 
-http.open("GET", "http://localhost:3000/perfil");
+const listClients = () => {
+	const promise = new Promise((resolve, reject) => {
+		const http = new XMLHttpRequest();
+		http.open("GET", "http://localhost:3000/perfil");
+		http.send();
+		http.onload = () => {
+			const response = JSON.parse(http.response);
+			if (http.status >= 400) reject(response);
+			else resolve(response);
+		};
+	})
 
-http.send();
+	return promise;
+}
 
-http.onload = () => {
-	const data = JSON.parse(http.response);
-	data.forEach( perfil => {
-		table.appendChild(crearNuevaLinea(perfil.nombre, perfil.email, 0));
-	});
-};
+console.log(listClients());
+
+// data.forEach( perfil => {
+// 			table.appendChild(createNewLine(perfil.nombre, perfil.email, 0));
+// });
