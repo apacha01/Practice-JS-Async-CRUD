@@ -48,4 +48,4 @@ listClients().then((data) => {
 	data.forEach( perfil => {
 		table.appendChild(createNewLine(perfil.nombre, perfil.email, 0));
 	});
-});
+}).catch((error) => alert("Hubo un error."));
