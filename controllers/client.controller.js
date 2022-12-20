@@ -26,16 +26,18 @@ const createNewLine = (name, email, id) => {
     </td>
   `;
   line.innerHTML = content;
-  // const btn = linea.querySelector("button");
-  // btn.addEventListener("click", () => {
-  //   const id = btn.id;
-  //   clientServices
-  //     .eliminarCliente(id)
-  //     .then((respuesta) => {
-  //       console.log(respuesta);
-  //     })
-  //     .catch((err) => alert("Ocurrió un error"));
-  // });
+
+  const btn = line.querySelector("button");
+  btn.addEventListener("click", () => {
+    const id = btn.id;
+    clientServices
+      .deleteClient(id)
+      .then((response) => {
+        location.reload();
+      })
+      .catch((err) => alert("Hubo un error al eliminar un cliente."));
+  });
+
   return line;
 };
 
@@ -49,4 +51,4 @@ clientServices
       table.appendChild(newLine);
     });
   })
-  .catch((error) => alert("Hubo un error."));
+  .catch((error) => alert("Hubo un error al mostrar los clientes."));

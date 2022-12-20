@@ -1,24 +1,9 @@
 {
   "perfil": [
     {
-      "name": "Panchito",
-      "email": "pancho@alura.com",
-      "id": 1
-    },
-    {
-      "name": "Pedrito",
-      "email": "pedro@alura.com",
-      "id": "b007442c-8aad-456b-b6a1-4fee1562eb84"
-    },
-    {
       "name": "Jose",
       "email": "jose@mail.com",
       "id": "ce997c16-6dad-467d-9079-3cb2af37f032"
-    },
-    {
-      "name": "jose",
-      "email": "jose@mail.com",
-      "id": "abe1eba0-867d-4e17-9d8d-b44b4620b901"
     }
   ]
 }
