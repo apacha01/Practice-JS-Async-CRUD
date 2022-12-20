@@ -29,3 +29,7 @@
 .simple-button--edit {
   color: var(--sucess-color);
 }
+
+.button:hover , .simple-button:hover{
+  cursor: pointer;
+}
