@@ -14,7 +14,6 @@ const getInfo = async () => {
 
 	try {
 		const perfil = await clientServices.clientDetailes(id);
-		console.log(perfil);
 		if (perfil.name && perfil.email) {
 			name.value = perfil.name;
 			email.value = perfil.email;
@@ -28,4 +27,14 @@ const getInfo = async () => {
 
 getInfo();
 
+form.addEventListener("submit", (event) => {
+	event.preventDefault();
+	const url = new URL(window.location);
+	const id = url.searchParams.get("id");
 
+	const name = document.querySelector("[data-nombre]").value;
+	const email = document.querySelector("[data-email]").value;
+	clientServices.updateClient(name, email, id).then(() => {
+		window.location.href = "/screens/edit_concluded.html";
+	});
+});

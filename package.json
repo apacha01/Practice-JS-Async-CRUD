@@ -1,0 +1,19 @@
+{
+  "name": "CRUD_JS_Async",
+  "version": "1.0.0",
+  "description": "CRUD_JS_Async Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apacha01/Proyecto16-CRUD-JS-Async.git"
+  },
+  "author": "Agustín Pacheco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apacha01/Proyecto16-CRUD-JS-Async/issues"
+  },
+  "homepage": "https://github.com/apacha01/Proyecto16-CRUD-JS-Async.git"
+}
