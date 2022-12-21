@@ -29,27 +29,37 @@ const createNewLine = (name, email, id) => {
 	line.innerHTML = content;
 
 	const btn = line.querySelector("button");
-	btn.addEventListener("click", () => {
+	btn.addEventListener("click", async () => {
 		const id = btn.id;
-		clientServices
-		.deleteClient(id)
-		.then((response) => {
+
+		try{
+			const deletedClient = clientServices.deleteClient(id);
+			if (!deletedClient) throw new Error();
 			location.reload();
-		})
-		.catch((err) => alert("Hubo un error al eliminar un cliente."));
+		} catch (error) {
+			window.location.href = "/screens/error.html";
+			console.log(error);
+		}
 	});
 
 	return line;
 }
 
-const table = document.querySelector("[data-table]");
+const showClients = async () => {
+	const table = document.querySelector("[data-table]");
 
-clientServices
-	.listClients()
-	.then((data) => {
-		data.forEach( ({ name, email, id} ) => {
-			const newLine = createNewLine(name, email, id);
-			table.appendChild(newLine);
-		});
-	})
-	.catch((error) => alert("Hubo un error al mostrar los clientes."));
+	try {
+		const list = await clientServices.listClients();
+		if (list) {
+			list.forEach(element => {
+				const newLine = createNewLine(element.name, element.email, element.id);
+				table.appendChild(newLine);
+			});
+		}
+	} catch (error){
+		window.location.href = "/screens/error.html";
+		console.log(error);
+	}
+};
+
+showClients();

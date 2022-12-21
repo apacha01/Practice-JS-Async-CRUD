@@ -4,6 +4,16 @@
       "name": "Jose",
       "email": "jose123@mail.com",
       "id": "ce997c16-6dad-467d-9079-3cb2af37f032"
+    },
+    {
+      "name": "Jorge",
+      "email": "jorge@mail.com",
+      "id": "f88243eb-e6dd-4f5e-a612-5b19c7b868e4"
+    },
+    {
+      "name": "Manuel",
+      "email": "manuel@mail.com",
+      "id": "9bbf5080-639e-4714-ab88-6d262943ddc8"
     }
   ]
 }
