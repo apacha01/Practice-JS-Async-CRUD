@@ -13,8 +13,12 @@ const deleteClient = (id) => {
 	return fetch(`http://localhost:3000/perfil/${id}`, { method: "DELETE", });
 };
 
+const clientDetailes = (id) =>
+	fetch(`http://localhost:3000/perfil/${id}`).then((response) => response.json());
+
 export const clientServices = {
 	listClients,
 	createClient,
 	deleteClient,
+	clientDetailes
 };
